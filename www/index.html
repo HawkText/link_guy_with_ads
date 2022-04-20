@@ -1,0 +1,2479 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, viewport-fit=cover" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="format-detection" content="telephone=no" />
+
+<!-- to avoid the warning of content security policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src * 'unsafe-inline' 'unsafe-eval'">
+<style type="text/css">
+            body{
+                background: url('images/background_tiles_grey.jpg');
+                background-color: black;
+                background-repeat: no-repeat;
+                background-position-x: center;
+                background-size: auto 640px;
+            max-width: fit-content;
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0;
+            zoom: 50%;
+            margin-top: 15px;
+            border-color: black;
+            outline: 30px solid rgb(0, 0, 0);
+            }
+    
+            div.row div{
+                width:60px;
+                height: 60px;
+                display:inline-block;
+                
+            }
+            
+            div.stairs{
+                background: url('images/stairs_2.jpg');
+                background-repeat: no-repeat;
+                width: 60px;
+                height: 60px;
+                
+            }
+        
+            div.empty{
+                background-position: center;
+                
+            }
+    
+            div.left_wall{
+                background-color: rgb(70, 70, 87);
+                background: url("images/left_wall.jpg");
+                
+            }
+    
+            div.top_wall{
+                background-color: rgb(70, 70, 87);
+                background: url("images/top_wall.jpg");
+                
+            }
+    
+            div.bottom_wall{
+                background-color: rgb(70, 70, 87);
+                background: url("images/bottom_wall.jpg");
+                
+            }
+    
+            div.right_wall{
+                background-color: rgb(70, 70, 87);
+                background: url("images/right_wall.jpg");
+                
+            }
+    
+            div.top_right_pillar{
+                background-color: rgb(70, 70, 87);
+                background: url("images/top_right_pillar.jpg");
+                
+            }
+    
+            div.top_left_pillar{
+                background-color: rgb(70, 70, 87);
+                background: url("images/top_left_pillar.jpg");
+                
+            }
+    
+            div.bottom_right_pillar{
+                background-color: rgb(70, 70, 87);
+                background: url("images/bottom_right_pillar.jpg");
+                
+            }
+    
+            div.bottom_left_pillar{
+                background-color: rgb(70, 70, 87);
+                background: url("images/bottom_left_pillar.jpg");
+                
+            }
+    
+            div.brown_pillar{
+                background: url("images/brown_pillar_1.jpg");
+                width: 60px;
+                height: 60px;
+                
+            }
+    
+            div.pit_fall{
+                background: url("images/pitfall_1.jpg");
+                width: 60px;
+                height: 60px;
+                
+            }
+            
+            div.purple_rupee{
+                background: url("images/purple_rupee_spin.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                
+            }
+    
+            div.blue_rupee{
+                background: url("images/blue_rupee_spin.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                
+            }
+    
+            div.green_rupee{
+                background: url("images/green_rupee_spin.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                
+            }
+            div.red_rupee{
+                background: url("images/red_rupee_spin.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                
+            }
+            div.yellow_rupee{
+                background: url("images/yellow_rupee_spin.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                
+            }
+    
+            div#link_guy{
+                background: url("images/link_walk_down.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 60px;
+                height: 60px;
+                position: absolute;
+                
+            }
+    
+            div.shop_guy{
+                background: url("images/shop_guy.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 60px;
+                height: 60px;
+                
+            }
+    
+            div.shop_fire{
+                background: url("images/shop_fire.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 60px;
+                height: 60px;
+                
+            }
+    
+            div.shop_heart{
+                background: url("images/shop_heart2.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 60px;
+                height: 60px;
+                
+            }
+    
+            div.blue_shard{
+                background: url("images/blue_shard.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 60px;
+                height: 60px;
+                
+            }
+    
+            div.heart_200{
+                background: url("images/price_mat.jpg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                color: rgb(17, 5, 6);
+                font-size: 25px;
+                
+            }
+    
+            div.shard_500{
+                background: url("images/price_mat.jpg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                color: rgb(17, 5, 6);
+                font-size: 25px;
+                
+            }
+    
+            div#score{
+                border:1px solid white;
+                width: 80px;
+                height: 60px;
+                color: rgb(161, 20, 32);
+                background-color: rgb(161, 190, 29);
+                font-size: 25px;
+                outline-color: blue;
+                left : 85px;
+                top: 660px;
+                position: absolute;
+                
+            }
+    
+            div#linkGuyHP{
+                border:1px solid white;
+                width: 80px;
+                height: 60px;
+                color: rgb(161, 20, 32);
+                background-color: rgb(208, 218, 221);
+                font-size: 25px;
+                outline-color: blue;
+                left:0px;
+                top: 660px;
+                position: absolute;
+                
+            }
+    
+            div#kills{
+                border:1px solid white;
+                width: 80px;
+                height: 60px;
+                color: rgb(17, 5, 6);
+                background-color: rgb(102, 5, 5);
+                font-size: 25px;
+                outline-color: blue;
+                left: 170px;
+                top: 660px;
+                position: absolute;
+                
+            }
+    
+            div#floor{
+                border:1px solid white;
+                width: 80px;
+                height: 60px;
+                color: rgb(17, 5, 6);
+                background-color: rgb(9, 95, 9);
+                font-size: 25px;
+                outline-color: blue;
+                left: 255px;
+                top: 660px;
+                position: absolute;
+                
+            }
+    
+            div#shards{
+                border:1px solid white;
+                width: 80px;
+                height: 60px;
+                color: rgb(23, 231, 16);
+                background-color: rgb(255, 196, 0);
+                font-size: 25px;
+                outline-color: blue;
+                left: 340px;
+                top: 660px;
+                position: absolute;
+                
+            }
+    
+            div#startGame{
+            background: url('images/start_screen_LoL.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            border:1px solid white;
+            height: 720px;
+            color: rgb(245, 220, 222);
+            background-color: rgb(102, 5, 5);
+            font-size: 30px;
+            outline-color: blue;
+            position: absolute;
+            top: 0px;
+
+        }
+
+        button#startGameButton{
+            border:1px solid white;
+            width: 150px;
+            height: 150px;
+            color: rgb(129, 127, 127);
+            background-color: rgb(0, 0, 0);
+            font-size: 30px;
+            position: absolute;
+            top: 400px;
+            left: 320px;
+            touch-action: manipulation;
+        }
+
+        div#finalScore{
+            background: url('images/blood_ocean.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            border:1px solid white;
+            width: 100%;
+            height: 720px;
+            color: rgb(17, 5, 6);
+            background-color: rgb(102, 5, 5);
+            font-size: 30px;
+            outline-color: blue;
+            position: absolute;
+            top: 0px;
+        }
+    
+            button#finalScoreButton{
+                border:1px solid white;
+                width: 150px;
+                height: 150px;
+                color: rgb(17, 5, 6);
+                background-color: rgb(102, 5, 5);
+                font-size: 30px;
+                outline-color: blue;
+                position: absolute;
+                top: 260px;
+                left: 320px;
+                
+            }
+    
+            .attackUp{
+            background: url('images/test_attack.gif');
+            background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            width:45px;
+            height:45px;
+            position:absolute;
+            transform: rotate(135deg);
+            margin-left: 7px;
+            
+            }
+    
+            .attackRight{
+                background: url('images/test_attack.gif');
+            background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            width:45px;
+            height:45px;
+            position:absolute;
+            transform: rotate(-135deg);
+            margin-top: 7px;
+            
+            }
+    
+            .attackLeft{
+                background: url('images/test_attack.gif');
+            background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            width:45px;
+            height:45px;
+            position:absolute;
+            transform: rotate(45deg);
+            margin-top: 7px;
+            
+            }
+    
+            .attackDown{
+                background: url('images/test_attack.gif');
+            background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            width:45px;
+            height:45px;
+            position:absolute;
+            transform: rotate(-45deg);
+            margin-left: 7px;
+            
+            }
+    
+            .enemy1{
+            background: url('images/bat_flapping.gif');
+            background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            width:60px;
+            height:60px;
+            position:absolute;
+            
+        }
+        .enemy2{
+            background: url('images/bat_flapping.gif');
+            background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            width:60px;
+            height:60px;
+            position:absolute;
+            
+        }
+            
+        .explosion{
+            background: url('images/blood_burst.gif') no-repeat center;
+            background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            
+        }
+    
+        .bloodBurst{
+            background: url('images/blood_splatter.gif') no-repeat center;
+            background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            width: 640px;
+            height: 640px;
+            position: absolute;
+        }
+    
+    
+        div.container{
+            background: url('images/background.jpg.');
+            background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                justify-content: center;
+                justify-items: center;
+                justify-self: center;
+            width: 800px;
+            height: 680px;
+    
+        }
+
+            
+        /* div#world{
+            border-style: solid;
+            border-width: 50px;
+            border-color: black;
+        } */
+    
+        @media only screen
+        and (min-device-width : 768px)
+        and (max-device-width : 1024px){
+            body{
+            zoom: 70%;
+            }
+
+            @media only screen
+        and (min-device-width : 820px)
+        and (max-device-width : 1100px){
+            body{
+            zoom: 85%;
+            }
+        }
+    }
+        /* @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 480px){ */
+    
+        button#upButton{
+                background: url('images/up_arrow_test.jpg');
+                border:1px solid white;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 150px;
+                height: 150px;
+                position: absolute;
+                top: 785px;
+                left: 460px;
+                
+            }
+            button#downButton{
+                background: url('images/down_arrow_test.jpg');
+                border:1px solid white;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 150px;
+                height: 150px;
+                color: rgb(161, 20, 32);
+                background-color: rgb(161, 190, 29);
+                position: absolute;
+                top: 950px;
+                left: 460px;
+                
+            }
+            button#leftButton{
+                background: url('images/left_arrow_test.jpg');
+                border:1px solid white;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 150px;
+                height: 150px;
+                color: rgb(161, 20, 32);
+                background-color: rgb(161, 190, 29);
+                position: absolute;
+                top: 870px;
+                left: 300px;
+                
+            }
+            button#rightButton{
+                background: url('images/right_arrow_test.jpg');
+                border:1px solid white;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 150px;
+                height: 150px;
+                color: rgb(161, 20, 32);
+                background-color: rgb(161, 190, 29);
+                position: absolute;
+                top: 870px;
+                left: 620px;
+                
+            }
+            button#spaceBarButton{
+                background: url('images/space_bar_button.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                border:1px solid white;
+                width: 600px;
+                height: 150px;
+                color: rgb(161, 20, 32);
+                background-color: rgb(161, 190, 29);
+                position: absolute;
+                top: 1150px;
+                left: 120px;
+                
+            }
+            #controllerArea{
+                width: 99%;
+                height: 650px;
+                border:5px solid rgba(255, 255, 255, 0.521);
+                position: absolute;
+                top: 722px;
+                left: 0px;
+                margin-right: 50px;
+                padding-top: 30px;
+                
+            }
+        /* } */
+    /* button#loadAdMob{
+        width: 782px;
+        height: 570px;
+    }
+
+    button#playAdMob{
+        width: 782px;
+        height: 570px;
+    } */
+
+
+</style>
+<title>Hello World</title>
+
+
+<script>
+  // fix wp8 view port issue, see:
+  // https://github.com/floatinghotpot/cordova-admob-pro/issues/109
+  // https://coderwall.com/p/zk_2la/responsive-design-in-ie-10-on-windows-phone-8
+  // http://stackoverflow.com/questions/24007577/windows-phone-8-viewport-issue
+(function() {
+  if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+    var msViewportStyle = document.createElement("style");
+    msViewportStyle.appendChild(
+      document.createTextNode("@-ms-viewport{width:auto!important}")
+    );
+    document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+  }
+})();
+</script>
+
+<!-- optional -->
+<script type="text/javascript" src="jquery-1.9.js"></script>
+
+<!-- must-have, which will be created by cordova prepare/build -->
+<script type="text/javascript" src="cordova.js"></script>
+
+<style type="text/css">
+body {
+width: 100%;
+height: 100%;
+margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+div#fullpage {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0px solid red;
+  text-align: center;
+  vertical-align: middle;
+}
+
+select, textarea {
+  width: calc(100% - 20px);
+  padding: 0px;
+  margin: 5px;
+}
+
+
+
+</style>
+</head>
+<body onload="loadAdMob(); adBarBottom();">
+    <div id="container">
+        <div id="background" >
+        <div id='attackUp'>
+            <div class='attackUp' style='top:250px; left:200px;'></div>
+            <div class='attackUp' style='top:350px; left:200px;'></div>
+        </div>
+        <div id='attackRight'>
+            <div class='attackRight' style='top:250px; left:200px;'></div>
+            <div class='attackRight' style='top:350px; left:200px;'></div>
+        </div>
+        <div id='attackLeft'>
+            <div class='attackLeft' style='top:250px; left:200px;'></div>
+            <div class='attackLeft' style='top:350px; left:200px;'></div>
+        </div>
+        <div id='attackDown'>
+            <div class='attackDown' style='top:250px; left:200px;'></div>
+            <div class='attackDown' style='top:350px; left:200px;'></div>
+        </div>
+        <div id='enemies'>
+            <div class='enemy1'></div>
+            <div class='enemy1'></div>
+        </div>
+        <div id="world"></div>
+        <div id="link_guy"></div>
+        <div id="score">Yum</div>
+        <div id="kills">Kills</div>
+        <div id="linkGuyHP"></div>
+        <div id="floor">Floor</div> 
+        <div id="shards">Shards</div>
+        <div id="heart_200">200</div>
+        <div id="shard_500">500</div>  
+        <div class="brick"></div>
+        
+        <div id="finalScore">Score</div>
+        <div id='bloodBursts'>
+            <div class='bloodBurst'></div>
+        </div>
+        <button id="finalScoreButton" onClick="window.location.reload();">Click To Restart</button>
+        <div id='explosions'>
+            <div class='explosion'></div>
+        </div>
+
+        <div id="startGame">
+            <h2>Use the w,a,s,d or arrow keys and space bar to attack. Becareful attacking costs 5 points and watch your step!</h2>
+            <button id="startGameButton" ontouchstart ="displayStartGameButton()">Click here to start!</button>
+        </div>
+        <div>
+            <div id="controllerArea"></div>
+            <button id="upButton"></button>
+            <button id="downButton" ></button>
+            <button id="leftButton" ></button>
+            <button id="rightButton"></button>
+            <button id="spaceBarButton" ontouchstart="spacebarButtonTouch()"></button>
+        </div>
+        <p id="demo"></p>
+    </div>
+    <script>
+
+//function to start game - start game menu
+        function displayStartGame(){
+            var x = document.getElementById("startGame");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                    } else {
+                x.style.display = "none";
+            }
+        }
+        function displayStartGameButton(){
+            linkGuyHP = 100;
+            score = 0;
+            enemies = [		{
+                        x: 150, y:250, type: 1
+                    },
+                    {
+                        x: 200, y:500, type: 2
+                    },
+                    {
+                        x: 300, y:250, type: 1
+                    },
+                    {
+                        x: 400, y:500, type: 2
+                    },
+                    {
+                        x: 500, y:250, type: 1
+                    },
+                    {
+                        x:600, y:700, type: 2
+                    },
+                    {
+                        x: 700, y:250, type: 1
+                    }]
+                    link_guy = {
+            x: 1,
+            y: 9,
+        };
+            var x = document.getElementById("startGame");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                    } else {
+                x.style.display = "none";
+            }
+        }
+        displayStartGame();
+        displayStartGameButton();
+//random any gem
+var worldGem = Array(2, 8, 9, 11, 12);
+var x1 = worldGem[Math.floor(Math.random()*worldGem.length)];
+var x2 = worldGem[Math.floor(Math.random()*worldGem.length)];
+var x3 = worldGem[Math.floor(Math.random()*worldGem.length)];
+var x4 = worldGem[Math.floor(Math.random()*worldGem.length)];
+var x5 = worldGem[Math.floor(Math.random()*worldGem.length)];
+
+//
+var worldGemEmpty = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12);
+var xg1 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+var xg2 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+var xg3 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+var xg4 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+var xg5 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+
+//random walls
+var worldWall = Array(801, 10, 801, 0, 8, 12, 801, 801, 801, 12);
+var wa1 = worldWall[Math.floor(Math.random()*worldWall.length)];
+var wa2 = worldWall[Math.floor(Math.random()*worldWall.length)];
+var wa3 = worldWall[Math.floor(Math.random()*worldWall.length)];
+var wa4 = worldWall[Math.floor(Math.random()*worldWall.length)];
+var wa5 = worldWall[Math.floor(Math.random()*worldWall.length)];
+
+//random stairs
+var worldStairs = Array(5, 6, 7, 13, 14, 15);
+var s1 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+var s2 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+var s3 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+var s4 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+var s5 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+
+//Level 1 world 1 stage 1
+        var world = [
+            [810,802,802,802,802,802,802,802,802,802,802,802,805],
+            [800,wa1,xg1,xg5,xg5,xg4,xg3,xg4,xg5,xg1,xg1,xg5,803],
+            [800,xg1,wa1,wa2,wa2,xg1,xg2,xg5,xg2,xg1,x1,xg2,803],
+            [800,xg1,xg2,wa1,xg1,xg2,wa2,xg5,xg3,xg5,xg4,xg5,803],
+            [800,xg5,xg2,wa3,xg5,xg2,wa1,wa3,wa3,wa2,xg5,xg3,803],
+            [800,xg4,wa5,wa3,wa5,xg2,wa1,xg5,xg4,xg5,xg4,xg5,803],
+            [800,xg3,wa2,xg2,xg1,xg5,wa3,xg5,xg5,wa1,wa2,wa2,803],
+            [800,xg2,xg5,wa1,xg1,wa2,wa1,xg3,xg4,wa1,xg5,xg5,803],
+            [800,xg3,wa1,xg1,xg3,wa2,wa1,xg3,xg5,wa2,5,xg5,803],
+            [800,0,xg5,xg5,xg3,xg5,wa2,wa1,xg5,xg3,xg5,xg1,803],
+            [807,804,804,804,804,804,804,804,804,804,804,804,806]
+        ];
+
+        var startGame= 0;
+        var score = 0;
+        var kills = 0;
+        var floor = 1;
+        var shards = 0;
+        var finalScore = 0;
+
+        //must start with this much HP due to starting screen currently running game in background and hero getting hit
+        var linkGuyHP = 10000;
+        var link_guy = {
+            x: 1,
+            y: 9,
+        };
+        var attackUp = [];
+        var attackRight = [];
+        var attackLeft = [];
+        var attackDown = [];
+        var explosions = [];
+        var bloodBursts = [];
+        var enemies = [
+    {
+        x: 200, y:250, type: 1
+    },
+    {
+        x: 200, y:500, type: 2
+    },
+    {
+        x: 300, y:250, type: 1
+    },
+    {
+        x: 400, y:500, type: 2
+    },
+    {
+        x: 500, y:250, type: 1
+    },
+    {
+        x:600, y:500, type: 2
+    },
+    {
+        x: 600, y:250, type: 1
+    }
+];
+function refreshPage(){
+window.location.reload();
+} 
+        function displayWorld(){
+            var output ='';
+            for(var i=0; i<world.length; i++){
+                output += "<div class='row'>";
+                for(var j=0; j<world[i].length; j++){
+                    if(world[i][j] == 800)
+                        output += "<div class='left_wall'></div>";
+                    else if(world[i][j] == 801)
+                        output +="<div class='brown_pillar'></div>";
+                    else if(world[i][j] == 802)
+                        output +="<div class='top_wall'></div>";
+                    else if(world[i][j] == 803)
+                        output +="<div class='right_wall'></div>";
+                    else if(world[i][j] == 804)
+                        output +="<div class='bottom_wall'></div>";
+                    else if(world[i][j] == 805)
+                        output +="<div class='top_right_pillar'></div>";
+                    else if(world[i][j] == 810)
+                        output +="<div class='top_left_pillar'></div>";
+                    else if(world[i][j] == 806)
+                        output +="<div class='bottom_right_pillar'></div>";
+                    else if(world[i][j] == 807)
+                        output +="<div class='bottom_left_pillar'></div>";
+                    else if(world[i][j] == 808)
+                        output +="<div class='shop_guy'></div>";
+                    else if(world[i][j] == 809)
+                        output +="<div class='shop_fire'></div>";
+                    else if(world[i][j] == 615)
+                        output +="<div class='heart_200'></div>";
+                    else if(world[i][j] == 616)
+                        output +="<div class='shard_500'></div>";
+                    else if(world[i][j] == 400)
+                        output +="<div class='shop_heart'></div>";
+                    else if(world[i][j] == 401)
+                        output +="<div class='blue_shard'></div>";
+                    else if(world[i][j] == 10)
+                        output +="<div class='pit_fall'></div>";
+                    else if(world[i][j] == 0)
+                        output +="<div class='empty'></div>";
+                    else  if(world[i][j] == 2)
+                        output +="<div class='purple_rupee'></div>";
+                    else if(world[i][j] == 5)
+                        output += "<div class='stairs'></div>";
+                    else if(world[i][j] == 6)
+                        output += "<div class='stairs'></div>";
+                    else if(world[i][j] == 7)
+                        output += "<div class='stairs'></div>";
+                    else if(world[i][j] == 8)
+                        output += "<div class='blue_rupee'></div>";
+                    else if(world[i][j] == 9)
+                        output += "<div class='red_rupee'></div>";
+                    else if(world[i][j] == 11)
+                        output += "<div class='yellow_rupee'></div>";
+                    else if(world[i][j] == 12)
+                        output += "<div class='green_rupee'></div>"; 
+                    else if(world[i][j] == 13)
+                        output += "<div class='stairs'></div>";
+                    else if(world[i][j] == 14)
+                        output += "<div class='stairs'></div>";
+                    else if(world[i][j] == 15)
+                        output += "<div class='stairs'></div>";
+                }
+                output +="\n</div>";
+            }
+            document.getElementById('world').innerHTML = output;
+        }
+
+        function displayLink_guy(){
+            document.getElementById('link_guy').style.top = link_guy.y*60 + "px"
+            document.getElementById('link_guy').style.left = link_guy.x*60 + "px"
+        }
+
+        function displayScore(){
+            document.getElementById('score').innerHTML = "Score:" + "<br/>" +  score;
+        }
+        function displayShards(){
+            document.getElementById('shards').innerHTML = "Shards:" + "<br/>" +  shards;
+        }
+        function displayKills(){
+            document.getElementById('kills').innerHTML = "Kills:" + "<br/>" +  kills;
+        }
+        function displayLinkGuyHP(){
+            document.getElementById('linkGuyHP').innerHTML = "Health:" + "<br/>" + linkGuyHP;
+        }
+        function displayFloor(){
+            document.getElementById('floor').innerHTML = "Floor:" + "<br/>" + floor;
+        }
+
+        //end game game over end of game the end death
+        function displayFinalScore(){
+            var x = document.getElementById("finalScore");
+            if (linkGuyHP <= 0) {
+                x.style.display = "block";
+                playAdMob();
+                    } else {
+                x.style.display = "none";
+            }
+            document.getElementById('finalScore').innerHTML = "Score:" + score + "<br/>" + "Floor;" + floor + "<br/>" + "Kills:" + kills +"<br/>" + "Shards:" + shards;
+        }
+
+        function displayFinalScoreButton(){
+            var x = document.getElementById('finalScoreButton');
+            if (linkGuyHP <= 0) {
+                x.style.display = "block";
+                    } else {
+                x.style.display = "none";
+            }
+        }
+
+        displayWorld();
+        displayLink_guy();
+        displayScore();
+        displayKills();
+        displayShards();
+        displayLinkGuyHP();
+        displayFloor();
+        displayFinalScoreButton();
+        displayFinalScore();
+
+        
+        function displayAttackUp(){
+            var output = "";
+    for (var i = 0; i<attackUp.length; i++)
+    {
+        output += "<div class='attackUp' style='top:"+ attackUp[i].y + "px; left:"
+                +attackUp[i].x + "px;'></div>";
+    }
+    document.getElementById('attackUp').innerHTML = output;
+}
+        function moveAttackUp(){
+    for (var i = 0; i<attackUp.length; i++)
+    {
+        attackUp[i].y -= 5;
+        if (attackUp[i].y <= 1)
+        {
+            removeItem(attackUp, i);
+        }
+    }
+}
+function removeItemUp(arr, num)
+{
+    for (var x = num; x < arr.length-1; x++)
+    {
+        arr[x] = arr[x+1];
+    }
+    arr.pop();
+}
+function detectCollisionUp(){
+    for (var i = 0; i < world.length;i++)
+    {
+        for (var h = 0; h < attackUp.length; h++)
+        {
+            if (attackUp[h].y == 40)
+            {
+                removeItemUp(attackUp, h);
+            }
+        }
+    }
+}
+//attack right
+function displayAttackRight(){
+            var output = "";
+    for (var i = 0; i<attackRight.length; i++)
+    {
+        output += "<div class='attackRight' style='top:"+ attackRight[i].y + "px; left:"
+                +attackRight[i].x + "px;'></div>";
+    }
+    document.getElementById('attackRight').innerHTML = output;
+}
+        function moveAttackRight(){
+    for (var i = 0; i<attackRight.length; i++)
+    {
+        attackRight[i].x += 5;
+        if (attackRight[i].y <= 1)
+        {
+            removeItem(attackRight, i);
+        }
+    }
+}
+function removeItemRight(arr, num)
+{
+    for (var x = num; x < arr.length-1; x++)
+    {
+        arr[x] = arr[x+1];
+    }
+    arr.pop();
+}
+function detectCollisionRight(){
+    for (var i = 0; i < world.length;i++)
+    {
+        for (var h = 0; h < attackRight.length; h++)
+        {
+            if (attackRight[h].x == 720)
+            {
+                removeItemRight(attackRight, h);
+            }
+        }
+    }
+}
+//attack left
+function displayAttackLeft(){
+            var output = "";
+    for (var i = 0; i<attackLeft.length; i++)
+    {
+        output += "<div class='attackLeft' style='top:"+ attackLeft[i].y + "px; left:"
+                +attackLeft[i].x + "px;'></div>";
+    }
+    document.getElementById('attackLeft').innerHTML = output;
+}
+        function moveAttackLeft(){
+    for (var i = 0; i<attackLeft.length; i++)
+    {
+        attackLeft[i].x -= 5;
+        if (attackLeft[i].y <= 1)
+        {
+            removeItemLeft(attackLeft, i);
+        }
+    }
+}
+function removeItemLeft(arr, num)
+{
+    for (var x = num; x < arr.length-1; x++)
+    {
+        arr[x] = arr[x+1];
+    }
+    arr.pop();
+}
+function detectCollisionLeft(){
+    for (var i = 0; i < world.length;i++)
+    {
+        for (var h = 0; h < attackLeft.length; h++)
+        {
+            if (attackLeft[h].x == 50)
+            {
+                removeItemLeft(attackLeft, h);
+            }
+        }
+    }
+}
+//attack down -working on this
+function displayAttackDown(){
+            var output = "";
+    for (var i = 0; i<attackDown.length; i++)
+    {
+        output += "<div class='attackDown' style='top:"+ attackDown[i].y + "px; left:"
+                +attackDown[i].x + "px;'></div>";
+    }
+    document.getElementById('attackDown').innerHTML = output;
+}
+        function moveAttackDown(){
+    for (var i = 0; i<attackDown.length; i++)
+    {
+        attackDown[i].y += 5;
+    }
+}
+
+function removeItemDown(arr, num)
+{
+    for (var x = num; x < arr.length-1; x++)
+    {
+        arr[x] = arr[x+1];
+    }
+    arr.pop();
+}
+// working on making in map detection for inside map
+function detectCollisionDown(){
+    for (var i = 0; i < world.length;i++)
+    {
+        for (var h = 0; h < attackDown.length; h++)
+        {
+            if (attackDown[h].y == 600)
+            {
+                removeItemLeft(attackDown, h);
+            }
+        }
+    }
+}
+//enemy
+
+function displayEnemies(){
+    var output = "";
+    for (var i = 0; i<enemies.length; i++)
+    {
+        if (enemies[i].type == 1)
+        {
+            output += "<div class='enemy1' style='top:"+ enemies[i].y + "px; left:"
+                +enemies[i].x + "px;'></div>";
+        }
+        else {
+            output += "<div class='enemy2' style='top:"+ enemies[i].y + "px; left:"
+                +enemies[i].x + "px;'></div>";
+        }
+    }
+    document.getElementById('enemies').innerHTML = output;
+}
+
+function moveEnemies(){
+    for (var i = 0; i<enemies.length; i++)
+    {
+        enemies[i].y += 3;
+        if (enemies[i].y > 580)
+        {
+            enemies[i].y = -50;
+            enemies[i].x = Math.round(Math.random()*650);
+            
+        }
+    }
+}
+/////////////////////////////////WORKING ON THIS STILL/////////////////////////////// enemy player collision enemy hit hit enemy
+function detectCollisionPlayerEnemy(){
+for (var i = 0; i < enemies.length;i++)
+    {
+            if ((Math.abs(link_guy.x*60 - enemies[i].x) <= 45) && (Math.abs(link_guy.y*60 - enemies[i].y) <= 25))
+            {
+                enemies[i].y = 0;
+                enemies[i].x = Math.round(Math.random()*650);
+                bloodBursts.push({x: link_guy.x, y: link_guy.y, count: 0});
+                score -= 25;
+                linkGuyHP -=25;
+                    //end game here
+            }
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// enemy hit detection
+function displayAnimation()
+{
+    var output = "";
+    for (var i = 0; i<explosions.length; i++)
+    {
+        explosions[i].count++;
+        output += "<div class='explosion' style='top:"+ explosions[i].y + "px; left:"
+                +explosions[i].x + "px;'></div>";
+        if (explosions[i].count > 15 )
+            removeItem(explosions, i);
+    }
+    document.getElementById('explosions').innerHTML = output;
+}
+
+function displayAnimationPlayerHit()
+{
+    var output = "";
+    for (var i = 0; i<bloodBursts.length; i++)
+    {
+        bloodBursts[i].count++;
+        output += "<div class='bloodBurst' style='top:"+ bloodBursts[i].y + "px; left:"
+                +bloodBursts[i].x + "px;'></div>";
+        if (bloodBursts[i].count > 15 )
+            removeItem(bloodBursts, i);
+    }
+    document.getElementById('bloodBursts').innerHTML = output;
+}
+
+function detectCollisionEnemyDown(){
+    for (var i = 0; i < enemies.length;i++)
+    {
+        for (var h = 0; h < attackDown.length; h++)
+        {
+            if ((Math.abs(attackDown[h].x - enemies[i].x) < 60) && (Math.abs(attackDown[h].y - enemies[i].y) < 60))
+            {
+                removeItemDown(attackDown, h);
+                explosions.push({x: enemies[i].x-15, y: enemies[i].y-30, count: 0});
+                enemies[i].y = 0;
+                enemies[i].x = Math.round(Math.random()*650);
+                explosions.push({x: enemies[i].x-15, y: enemies[i].y-30, count: 0});
+                score += 6;
+                kills += 1;
+            }
+        }
+    }
+}
+function removeItem(arr, num)
+{
+    for (var x = num; x < arr.length-1; x++)
+    {
+        arr[x] = arr[x+1];
+    }
+    arr.pop();
+}
+function detectCollisionEnemyUp(){
+    for (var i = 0; i < enemies.length;i++)
+    {
+        for (var h = 0; h < attackUp.length; h++)
+        {
+            if ((Math.abs(attackUp[h].x - enemies[i].x) < 60) && (Math.abs(attackUp[h].y - enemies[i].y) < 60))
+            {
+                removeItemUp(attackUp, h);
+                explosions.push({x: enemies[i].x-15, y: enemies[i].y-30, count: 0});
+                enemies[i].y = 0;
+                enemies[i].x = Math.round(Math.random()*650);
+                score += 6;
+                kills += 1;
+            }
+        }
+    }
+}
+function detectCollisionEnemyRight(){
+    for (var i = 0; i < enemies.length;i++)
+    {
+        for (var h = 0; h < attackRight.length; h++)
+        {
+            if ((Math.abs(attackRight[h].x - enemies[i].x) < 60) && (Math.abs(attackRight[h].y - enemies[i].y) < 60))
+            {
+                removeItemUp(attackRight, h);
+                explosions.push({x: enemies[i].x-15, y: enemies[i].y-30, count: 0});
+                enemies[i].y = 0;
+                enemies[i].x = Math.round(Math.random()*650);
+                score += 6;
+                kills += 1;
+            }
+        }
+    }
+}
+function detectCollisionEnemyLeft(){
+    for (var i = 0; i < enemies.length;i++)
+    {
+        for (var h = 0; h < attackLeft.length; h++)
+        {
+            if ((Math.abs(attackLeft[h].x - enemies[i].x) < 60) && (Math.abs(attackLeft[h].y - enemies[i].y) < 60))
+            {
+                removeItemUp(attackLeft, h);
+                explosions.push({x: enemies[i].x-15, y: enemies[i].y-30, count: 0});
+                enemies[i].y = 0;
+                enemies[i].x = Math.round(Math.random()*650);
+                score += 6;
+                kills += 1;
+            }
+        }
+    }
+}
+
+//Shop keeper stage bonus stage - must spawn on 12 or other gem 
+function cleared(){
+    if ((floor % 10) == 0){
+    enemies = [];
+    world.length = 0;
+    link_guy = {
+            x: 11,
+            y: 9,
+        }; 
+    world = [
+        [810,802,802,802,802,802,802,802,802,802,802,802,805],
+            [800,0,0,0,0,0,0,0,0,0,0,0,803],
+            [800,0,400,0,0,0,12,0,0,0,401,0,803],
+            [800,0,615,0,0,0,0,0,0,0,616,0,803],
+            [800,0,0,0,809,0,808,0,809,0,0,0,803],
+            [800,0,0,0,0,0,0,0,0,0,0,0,803],
+            [800,0,0,0,0,0,0,0,0,0,0,0,803],
+            [800,0,0,0,0,0,0,0,0,0,0,0,803],
+            [800,0,15,0,0,0,0,0,0,0,0,0,803],
+            [800,0,0,0,0,0,0,0,0,0,0,12,803],
+            [807,804,804,804,804,804,804,804,804,804,804,804,806],
+        ];
+    }
+}
+function winnerScreen(){
+    if (shards == 1){
+    document.body.style.backgroundImage ="url('images/rick_roll_win.gif')";
+    enemies = [];
+    world.length = 0;
+    link_guy = {
+            x: 11,
+            y: 9,
+        }; 
+    world = [
+        [810,802,802,802,802,802,802,802,802,802,802,802,805],
+            [800,0,0,0,0,0,0,0,0,0,0,0,803],
+            [800,0,400,0,0,0,12,0,0,0,401,0,803],
+            [800,0,615,0,0,0,0,0,0,0,616,0,803],
+            [800,0,0,0,809,0,0,0,809,0,0,0,803],
+            [800,0,0,0,0,0,0,0,0,0,0,0,803],
+            [800,0,0,0,0,0,0,0,0,0,0,0,803],
+            [800,0,0,0,0,0,0,0,0,0,0,0,803],
+            [800,0,15,0,0,0,0,0,0,0,0,0,803],
+            [800,0,0,0,0,0,0,0,0,0,0,12,803],
+            [807,804,804,804,804,804,804,804,804,804,804,804,806],
+        ];
+        shards = 0;
+    }
+}
+function gameLoop(){
+                displayScore();
+                displayKills();
+                displayFloor();
+                displayShards();
+                displayLinkGuyHP();
+                displayFinalScoreButton();
+                displayFinalScore();
+                displayAttackUp();
+                moveAttackUp();
+                displayAttackRight();
+                moveAttackRight();
+                displayAttackLeft();
+                moveAttackLeft();
+                displayAttackDown();
+                moveAttackDown();
+                displayLink_guy();
+                detectCollisionDown();
+                detectCollisionLeft();
+                detectCollisionRight();
+                detectCollisionUp();
+                moveEnemies();
+                displayEnemies();
+                detectCollisionEnemyDown();
+                detectCollisionEnemyUp();
+                detectCollisionEnemyLeft();
+                detectCollisionEnemyRight();
+                detectCollisionPlayerEnemy();
+                displayAnimation();
+                displayAnimationPlayerHit();
+            }
+setInterval(gameLoop, 20);
+
+// Touch controls 
+
+        function spacebarButtonTouch(){
+        if (document.getElementById('link_guy').style.transform == "rotate(90deg)" && score >= 5) {
+            attackLeft.push({x: link_guy.x*60, y: link_guy.y*60});
+            score-=5;
+        }
+        else if (document.getElementById('link_guy').style.transform == "rotate(-90deg)" && score >= 5) {
+            attackRight.push({x: link_guy.x*60, y: link_guy.y*60});
+            score-=5;
+        }
+        else if (document.getElementById('link_guy').style.transform == "rotate(-180deg)" && score >= 5) {
+            attackUp.push({x: link_guy.x*60, y: link_guy.y*60});
+            score-=5;
+        }
+        else if (document.getElementById('link_guy').style.transform == "rotate(-360deg)" && score >= 5) {
+            attackDown.push({x: link_guy.x*60, y: link_guy.y*60});
+            score-=5;
+        }
+    }
+// key controls keyboard controls 
+//             document.onkeydown = function(e){
+//                 if(e.keyCode == 37 && world[link_guy.y][link_guy.x-1] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(90deg)";
+//                     link_guy.x--;
+//                     test2();
+//                 }
+//                 else if(e.keyCode == 37){
+//                     document.getElementById('link_guy').style.transform = "rotate(90deg)";
+//                 }
+//                 else if(e.keyCode == 39 && world[link_guy.y][link_guy.x+1] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(-90deg)";
+//                     link_guy.x++;
+//                     test2();
+//                 }
+//                 else if(e.keyCode == 39){
+//                     document.getElementById('link_guy').style.transform = "rotate(-90deg)";
+//                 }
+//                 else if(e.keyCode == 38 && world[link_guy.y-1][link_guy.x] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(-180deg)";
+//                     link_guy.y--;
+//                     test2();
+//                 }
+//                 else if(e.keyCode == 38){
+//                     document.getElementById('link_guy').style.transform = "rotate(-180deg)";
+//                 }
+//                 else if(e.keyCode == 40 && world[link_guy.y+1][link_guy.x] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(-360deg)";
+//                     link_guy.y += 1;
+//                     test2();
+//                 }
+//                 else if(e.keyCode == 40){
+//                     document.getElementById('link_guy').style.transform = "rotate(-360deg)";
+//                 }
+//                 else if(e.keyCode == 65 && world[link_guy.y][link_guy.x-1] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(90deg)";
+//                     link_guy.x--;
+//                     test2();
+//                 }
+//                 else if(e.keyCode == 65){
+//                     document.getElementById('link_guy').style.transform = "rotate(90deg)";
+//                 }
+//                 else if(e.keyCode == 68 && world[link_guy.y][link_guy.x+1] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(-90deg)";
+//                     link_guy.x++;
+//                     test2();
+//                 }
+//                 else if(e.keyCode == 68){
+//                     document.getElementById('link_guy').style.transform = "rotate(-90deg)";
+//                 }
+//                 else if(e.keyCode == 87 && world[link_guy.y-1][link_guy.x] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(-180deg)";
+//                     link_guy.y--;
+//                     test2();
+//                 }
+//                 else if(e.keyCode == 87){
+//                     document.getElementById('link_guy').style.transform = "rotate(-180deg)";
+//                 }
+//                 else if(e.keyCode == 83 && world[link_guy.y+1][link_guy.x] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(-360deg)";
+//                     link_guy.y += 1;
+//                     test2();
+//                 }
+//                 else if(e.keyCode == 83){
+//                     document.getElementById('link_guy').style.transform = "rotate(-360deg)";
+//                 }
+// // directional attack
+//                 else if (e.keyCode == 32 && document.getElementById('link_guy').style.transform == "rotate(90deg)" && score >= 5) {
+//                     attackLeft.push({x: link_guy.x*60, y: link_guy.y*60});
+//                     score-=5;
+//                 }
+//                 else if (e.keyCode == 32 && document.getElementById('link_guy').style.transform == "rotate(-90deg)" && score >= 5) {
+//                     attackRight.push({x: link_guy.x*60, y: link_guy.y*60});
+//                     score-=5;
+//                 }
+//                 else if (e.keyCode == 32 && document.getElementById('link_guy').style.transform == "rotate(-180deg)" && score >= 5) {
+//                     attackUp.push({x: link_guy.x*60, y: link_guy.y*60});
+//                     score-=5;
+//                 }
+//                 else if (e.keyCode == 32 && document.getElementById('link_guy').style.transform == "rotate(-360deg)" && score >= 5) {
+//                     attackDown.push({x: link_guy.x*60, y: link_guy.y*60});
+//                     score-=5;
+//                 }
+// // touch direction do i need it here?
+//             document.getElementById('upButton').ontouchstart= function(){
+//                 if(world[link_guy.y-1][link_guy.x] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(-180deg)";
+//                     link_guy.y--;
+//                     test2();
+//                 }
+//             }
+//             document.getElementById('downButton').ontouchstart = function(){
+//                 if(world[link_guy.y+1][link_guy.x] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(-360deg)";
+//                     link_guy.y += 1
+//                     test2();
+//                 }
+//             }
+//             document.getElementById('leftButton').ontouchstart = function(){
+//                 if(world[link_guy.y][link_guy.x-1] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(90deg)";
+//                     link_guy.x--;
+//                     test2();
+//                 }
+//             }
+//             document.getElementById('rightButton').ontouchstart = function(){
+//                 if(world[link_guy.y][link_guy.x+1] < 799){
+//                     document.getElementById('link_guy').style.transform = "rotate(-90deg)";
+//                     link_guy.x++;
+//                     test2();
+//                 }
+//             }
+        // convert this into a function and call that function on click and key press
+    function test2(){
+//Pit fall death
+        if(world[link_guy.y][link_guy.x] == 10){
+                document.getElementById('link_guy').style.transform = "rotate(90deg)";
+                linkGuyHP = -250;
+            }
+// Level 2 world 2 stage 2
+if(world[link_guy.y][link_guy.x] == 5){
+    world.length = 0;
+    floor += 1;
+
+    //random gem or empty
+worldGemEmpty = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12);
+xg1 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg2 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg3 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg4 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg5 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+
+// random gem
+worldGem = Array(2, 8, 9, 11, 12);
+x1 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x2 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x3 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x4 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x5 = worldGem[Math.floor(Math.random()*worldGem.length)];
+//random walls
+
+worldWall = Array(801, 10, 801, 0, 8, 12, 801, 801, 801, 12);
+wa1 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa2 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa3 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa4 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa5 = worldWall[Math.floor(Math.random()*worldWall.length)];
+
+//random stairs
+worldStairs = Array(5, 6, 7, 13, 14, 15);
+s1 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s2 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s3 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s4 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s5 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+//enemy position 
+enemies = [		{
+                            x: 150, y:250, type: 1
+                        },
+                        {
+                            x: 200, y:500, type: 2
+                        },
+                        {
+                            x: 300, y:250, type: 1
+                        },
+                        {
+                            x: 400, y:500, type: 2
+                        },
+                        {
+                            x: 500, y:250, type: 1
+                        },
+                        {
+                            x:600, y:700, type: 2
+                        },
+                        {
+                            x: 700, y:250, type: 1
+                        }]
+                        world = [
+                [810,802,802,802,802,802,802,802,802,802,802,802,805],
+                [800,wa1,xg1,xg5,xg5,xg4,xg3,xg4,xg5,xg1,wa2,xg5,803],
+                [800,xg1,wa1,wa2,wa2,xg1,xg2,xg5,wa3,xg1,wa2,xg2,803],
+                [800,xg1,xg2,wa1,xg1,xg2,wa2,xg5,xg3,xg5,xg4,xg5,803],
+                [800,xg5,xg2,wa3,xg5,xg2,wa1,wa3,wa3,wa2,xg5,wa2,803],
+                [800,xg4,wa5,wa3,wa5,xg2,wa2,xg5,xg4,xg5,xg4,xg5,803],
+                [800,xg3,wa2,xg2,xg1,xg5,wa3,xg5,wa2,wa1,wa3,wa2,803],
+                [800,xg2,xg5,wa1,xg1,wa2,wa1,xg3,xg4,wa1,xg5,xg5,803],
+                [800,xg3,15,xg1,xg3,wa2,wa1,xg3,xg5,wa2,12,xg5,803],
+                [800,xg4,xg5,xg5,wa3,wa4,wa2,wa1,xg5,xg3,xg5,xg1,803],
+                [807,804,804,804,804,804,804,804,804,804,804,804,806]
+            ];                   
+            cleared();
+            winnerScreen();
+                    }
+//Level 4 stage 4 world 4
+if(world[link_guy.y][link_guy.x] == 13){
+    world.length = 0;
+    floor += 1;
+//random gem or empty
+worldGemEmpty = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12);
+xg1 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg2 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg3 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg4 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg5 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+
+// random gem
+worldGem = Array(2, 8, 9, 11, 12);
+x1 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x2 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x3 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x4 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x5 = worldGem[Math.floor(Math.random()*worldGem.length)];
+//random walls
+
+worldWall = Array(801, 10, 801, 0, 8, 12, 801, 801, 801, 12);
+wa1 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa2 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa3 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa4 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa5 = worldWall[Math.floor(Math.random()*worldWall.length)];
+
+//random stairs
+worldStairs = Array(5, 6, 7, 13, 14, 15);
+s1 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s2 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s3 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s4 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s5 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+
+//enemy position 
+enemies = [		{
+                            x: 150, y:250, type: 1
+                        },
+                        {
+                            x: 200, y:500, type: 2
+                        },
+                        {
+                            x: 300, y:250, type: 1
+                        },
+                        {
+                            x: 400, y:500, type: 2
+                        },
+                        {
+                            x: 500, y:250, type: 1
+                        },
+                        {
+                            x:600, y:700, type: 2
+                        },
+                        {
+                            x: 700, y:250, type: 1
+                        }]
+                        world = [
+                [810,802,802,802,802,802,802,802,802,802,802,802,805],
+                [800,wa1,xg1,wa5,xg5,xg4,xg3,xg4,wa5,xg1,xg1,xg5,803],
+                [800,xg1,12,wa2,wa2,xg1,xg2,xg5,xg2,xg1,14,xg2,803],
+                [800,xg1,xg2,wa1,xg1,xg2,wa2,xg5,xg3,xg5,xg4,xg5,803],
+                [800,xg5,xg2,wa3,xg5,xg2,wa1,wa3,wa3,wa2,wa5,xg3,803],
+                [800,xg4,wa5,wa3,wa5,xg2,wa1,xg5,xg4,xg5,xg4,xg5,803],
+                [800,xg3,wa2,wa2,xg1,xg5,wa3,xg5,xg5,wa1,wa2,wa2,803],
+                [800,xg2,xg5,wa1,xg1,wa2,wa1,xg3,xg4,wa1,xg5,xg5,803],
+                [800,xg3,xg2,xg1,xg3,wa2,wa1,xg3,xg5,wa2,xg1,xg5,803],
+                [800,wa5,xg5,xg5,xg3,xg5,wa2,wa1,xg5,xg3,xg5,xg1,803],
+                [807,804,804,804,804,804,804,804,804,804,804,804,806]
+            ];
+            cleared();
+            winnerScreen();
+                }
+//Level 5
+if(world[link_guy.y][link_guy.x] == 14){
+    world.length = 0;
+    floor += 1;
+//random gem or empty
+worldGemEmpty = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12);
+xg1 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg2 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg3 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg4 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg5 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+
+//random any gem
+worldGem = Array(2, 8, 9, 11, 12);
+x1 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x2 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x3 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x4 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x5 = worldGem[Math.floor(Math.random()*worldGem.length)];
+
+//random walls
+worldWall = Array(801, 10, 801, 0, 8, 12, 801, 801, 801, 12);
+wa1 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa2 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa3 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa4 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa5 = worldWall[Math.floor(Math.random()*worldWall.length)];
+
+//random stairs
+worldStairs = Array(5, 6, 7, 13, 14, 15);
+s1 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s2 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s3 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s4 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s5 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+enemies = [		{
+                            x: 150, y:250, type: 1
+                        },
+                        {
+                            x: 200, y:500, type: 2
+                        },
+                        {
+                            x: 300, y:250, type: 1
+                        },
+                        {
+                            x: 400, y:500, type: 2
+                        },
+                        {
+                            x: 500, y:250, type: 1
+                        },
+                        {
+                            x:600, y:700, type: 2
+                        },
+                        {
+                            x: 700, y:250, type: 1
+                        }]
+                    world = [
+                [810,802,802,802,802,802,802,802,802,802,802,802,805],
+                [800,wa1,xg1,xg2,xg5,xg3,xg3,xg4,xg1,xg1,xg2,xg4,803],
+                [800,xg3,xg4,xg5,xg2,xg5,wa3,xg5,wa1,xg5,12,xg5,803],
+                [800,wa3,wa2,xg2,wa3,wa2,wa2,xg2,xg5,wa3,xg3,xg4,803],
+                [800,xg5,wa1,xg5,xg3,xg2,wa3,wa4,xg4,xg3,xg1,xg5,803],
+                [800,xg1,wa1,xg2,xg4,xg1,xg3,xg5,wa4,xg5,xg5,xg4,803],
+                [800,xg4,xg3,xg5,xg2,xg5,wa1,xg4,xg5,wa1,xg4,wa4,803],
+                [800,xg2,wa2,wa2,wa1,wa3,wa1,xg1,xg5,wa1,wa3,xg4,803],
+                [800,xg3,xg4,xg1,wa1,wa3,wa2,wa2,wa1,xg1,5,xg5,803],
+                [800,xg5,xg1,xg4,xg1,xg2,xg5,xg1,xg5,xg5,wa4,xg2,803],
+                [807,804,804,804,804,804,804,804,804,804,804,804,806]
+            ];
+            cleared();
+            winnerScreen();
+                }
+//Level 3 stage 3 world 3
+if(world[link_guy.y][link_guy.x] == 15){
+    world.length = 0;
+    floor += 1;
+
+//random gem or empty
+    worldGemEmpty = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12);
+xg1 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg2 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg3 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg4 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg5 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+
+// random gem
+worldGem = Array(2, 8, 9, 11, 12);
+x1 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x2 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x3 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x4 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x5 = worldGem[Math.floor(Math.random()*worldGem.length)];
+//random walls
+
+worldWall = Array(801, 10, 801, 0, 8, 12, 801, 801, 801, 12);
+wa1 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa2 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa3 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa4 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa5 = worldWall[Math.floor(Math.random()*worldWall.length)];
+
+//random stairs
+worldStairs = Array(5, 6, 7, 13, 14, 15);
+s1 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s2 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s3 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s4 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s5 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+
+//enemy position 
+enemies = [		{
+                        x: 150, y:250, type: 1
+                    },
+                    {
+                        x: 200, y:500, type: 2
+                    },
+                    {
+                        x: 300, y:250, type: 1
+                    },
+                    {
+                        x: 400, y:500, type: 2
+                    },
+                    {
+                        x: 500, y:250, type: 1
+                    },
+                    {
+                        x:600, y:700, type: 2
+                    },
+                    {
+                        x: 700, y:250, type: 1
+                    }]
+                    world = [
+            [810,802,802,802,802,802,802,802,802,802,802,802,805],
+            [800,wa1,xg1,xg5,xg5,xg4,xg3,xg4,wa3,xg1,xg1,xg5,803],
+            [800,xg1,13,wa2,wa2,xg1,xg2,xg5,xg2,xg1,wa4,xg2,803],
+            [800,xg1,xg2,xg2,xg1,xg2,wa2,xg5,xg3,xg5,xg4,xg5,803],
+            [800,wa2,xg2,wa3,xg5,xg2,wa1,wa3,wa3,wa2,xg5,xg3,803],
+            [800,xg4,wa5,wa3,wa5,xg2,wa1,xg5,xg4,xg5,xg4,xg5,803],
+            [800,xg3,wa2,xg2,xg1,wa4,wa3,xg5,xg5,wa1,wa2,wa2,803],
+            [800,xg2,xg5,wa1,xg1,xg2,xg2,xg3,xg4,wa1,xg5,xg5,803],
+            [800,xg3,12,xg1,xg3,wa2,wa1,xg3,xg5,wa2,xg1,xg5,803],
+            [800,xg4,xg5,xg5,xg3,xg5,wa2,wa1,xg5,xg3,xg5,xg1,803],
+            [807,804,804,804,804,804,804,804,804,804,804,804,806]
+        ];
+        cleared();
+        winnerScreen();
+            }
+            if(world[link_guy.y][link_guy.x] == 2){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=10;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 8){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=5;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 9){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=20;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 11){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=100;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 12){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=1;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 400 && score >200){
+                world[link_guy.y][link_guy.x] = 0;
+                linkGuyHP += 25;
+                score -= 200;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 401 && score >500){
+                world[link_guy.y][link_guy.x] = 0;
+                shards += 1;
+                score -= 500;
+                displayWorld();
+                displayScore();
+            }
+        }
+    // }
+    // touch direction touch controls working on mobile
+        document.ontouchstart = function(e){
+        document.getElementById('upButton').ontouchstart = function(){
+            if(world[link_guy.y-1][link_guy.x] < 799){
+                document.getElementById('link_guy').style.transform = "rotate(-180deg)";
+                link_guy.y--;
+                test2();
+            }
+            else if(linkGuyHP >=0){
+                document.getElementById('link_guy').style.transform = "rotate(-180deg)";
+            }
+        }
+        document.getElementById('downButton').ontouchstart = function(){
+            if(world[link_guy.y+1][link_guy.x] < 799){
+                document.getElementById('link_guy').style.transform = "rotate(-360deg)";
+                link_guy.y += 1
+                test2();
+            }
+            else if(linkGuyHP >=0){
+                document.getElementById('link_guy').style.transform = "rotate(-360deg)";
+            }
+        }
+        document.getElementById('leftButton').ontouchstart = function(){
+            if(world[link_guy.y][link_guy.x-1] < 799){
+                document.getElementById('link_guy').style.transform = "rotate(90deg)";
+                link_guy.x--;
+                test2();
+            }
+            else if(linkGuyHP >=0){
+                document.getElementById('link_guy').style.transform = "rotate(90deg)";
+            }
+        }
+        document.getElementById('rightButton').ontouchstart = function(){
+            if(world[link_guy.y][link_guy.x+1] < 799){
+                document.getElementById('link_guy').style.transform = "rotate(-90deg)";
+                link_guy.x++;
+                test2();
+            }
+            else if(linkGuyHP >=0){
+                document.getElementById('link_guy').style.transform = "rotate(-90deg)";
+            }
+        }
+
+    function test2(){
+//Pit fall death
+        if(world[link_guy.y][link_guy.x] == 10){
+                document.getElementById('link_guy').style.transform = "rotate(90deg)";
+                linkGuyHP = -250;
+            }
+// Level 2 MOBILE world 2 MOBILE stage 2 MOBILE
+if(world[link_guy.y][link_guy.x] == 5){
+    world.length = 0;
+    floor += 1;
+
+    //random gem or empty
+worldGemEmpty = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12);
+xg1 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg2 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg3 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg4 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg5 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+
+// random gem
+worldGem = Array(2, 8, 9, 11, 12);
+x1 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x2 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x3 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x4 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x5 = worldGem[Math.floor(Math.random()*worldGem.length)];
+//random walls
+
+worldWall = Array(801, 10, 801, 0, 8, 12, 801, 801, 801, 12);
+wa1 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa2 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa3 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa4 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa5 = worldWall[Math.floor(Math.random()*worldWall.length)];
+
+//random stairs
+worldStairs = Array(5, 6, 7, 13, 14, 15);
+s1 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s2 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s3 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s4 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s5 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+//enemy position 
+enemies = [		{
+                            x: 150, y:250, type: 1
+                        },
+                        {
+                            x: 200, y:500, type: 2
+                        },
+                        {
+                            x: 300, y:250, type: 1
+                        },
+                        {
+                            x: 400, y:500, type: 2
+                        },
+                        {
+                            x: 500, y:250, type: 1
+                        },
+                        {
+                            x:600, y:700, type: 2
+                        },
+                        {
+                            x: 700, y:250, type: 1
+                        }]
+                        world = [
+                [810,802,802,802,802,802,802,802,802,802,802,802,805],
+                [800,wa1,xg1,xg5,xg5,xg4,xg3,xg4,xg5,xg1,wa2,xg5,803],
+                [800,xg1,wa1,wa2,wa2,xg1,xg2,xg5,wa3,xg1,wa2,xg2,803],
+                [800,xg1,xg2,wa1,xg1,xg2,wa2,xg5,xg3,xg5,xg4,xg5,803],
+                [800,xg5,xg2,wa3,xg5,xg2,wa1,wa3,wa3,wa2,xg5,wa2,803],
+                [800,xg4,wa5,wa3,wa5,xg2,wa2,xg5,xg4,xg5,xg4,xg5,803],
+                [800,xg3,wa2,xg2,xg1,xg5,wa3,xg5,wa2,wa1,wa3,wa2,803],
+                [800,xg2,xg5,wa1,xg1,wa2,wa1,xg3,xg4,wa1,xg5,xg5,803],
+                [800,xg3,15,xg1,xg3,wa2,wa1,xg3,xg5,wa2,12,xg5,803],
+                [800,xg4,xg5,xg5,wa3,wa4,wa2,wa1,xg5,xg3,xg5,xg1,803],
+                [807,804,804,804,804,804,804,804,804,804,804,804,806]
+            ];                   
+            cleared();
+            winnerScreen();
+                    }
+//Level 4 world 4 stage 4 MOBILE
+if(world[link_guy.y][link_guy.x] == 13){
+    world.length = 0;
+    floor += 1;
+//random gem or empty
+worldGemEmpty = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12);
+xg1 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg2 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg3 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg4 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg5 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+
+// random gem
+worldGem = Array(2, 8, 9, 11, 12);
+x1 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x2 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x3 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x4 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x5 = worldGem[Math.floor(Math.random()*worldGem.length)];
+//random walls
+
+worldWall = Array(801, 10, 801, 0, 8, 12, 801, 801, 801, 12);
+wa1 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa2 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa3 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa4 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa5 = worldWall[Math.floor(Math.random()*worldWall.length)];
+
+//random stairs
+worldStairs = Array(5, 6, 7, 13, 14, 15);
+s1 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s2 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s3 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s4 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s5 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+
+//enemy position 
+enemies = [		{
+                            x: 150, y:250, type: 1
+                        },
+                        {
+                            x: 200, y:500, type: 2
+                        },
+                        {
+                            x: 300, y:250, type: 1
+                        },
+                        {
+                            x: 400, y:500, type: 2
+                        },
+                        {
+                            x: 500, y:250, type: 1
+                        },
+                        {
+                            x:600, y:700, type: 2
+                        },
+                        {
+                            x: 700, y:250, type: 1
+                        }]
+                        world = [
+                [810,802,802,802,802,802,802,802,802,802,802,802,805],
+                [800,wa1,xg1,wa5,xg5,xg4,xg3,xg4,wa5,xg1,xg1,xg5,803],
+                [800,xg1,12,wa2,wa2,xg1,xg2,xg5,xg2,xg1,14,xg2,803],
+                [800,xg1,xg2,wa1,xg1,xg2,wa2,xg5,xg3,xg5,xg4,xg5,803],
+                [800,xg5,xg2,wa3,xg5,xg2,wa1,wa3,wa3,wa2,wa5,xg3,803],
+                [800,xg4,wa5,wa3,wa5,xg2,wa1,xg5,xg4,xg5,xg4,xg5,803],
+                [800,xg3,wa2,wa2,xg1,xg5,wa3,xg5,xg5,wa1,wa2,wa2,803],
+                [800,xg2,xg5,wa1,xg1,wa2,wa1,xg3,xg4,wa1,xg5,xg5,803],
+                [800,xg3,xg2,xg1,xg3,wa2,wa1,xg3,xg5,wa2,xg1,xg5,803],
+                [800,wa5,xg5,xg5,xg3,xg5,wa2,wa1,xg5,xg3,xg5,xg1,803],
+                [807,804,804,804,804,804,804,804,804,804,804,804,806]
+            ];
+            cleared();
+            winnerScreen();
+                }
+//Level 5 MOBILE world 5 MOBILE stage 5 MOBILE
+if(world[link_guy.y][link_guy.x] == 14){
+    world.length = 0;
+    floor += 1;
+//random gem or empty
+worldGemEmpty = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12);
+xg1 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg2 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg3 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg4 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg5 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+
+//random any gem
+worldGem = Array(2, 8, 9, 11, 12);
+x1 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x2 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x3 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x4 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x5 = worldGem[Math.floor(Math.random()*worldGem.length)];
+
+//random walls
+worldWall = Array(801, 10, 801, 0, 8, 12, 801, 801, 801, 12);
+wa1 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa2 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa3 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa4 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa5 = worldWall[Math.floor(Math.random()*worldWall.length)];
+
+//random stairs
+worldStairs = Array(5, 6, 7, 13, 14, 15);
+s1 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s2 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s3 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s4 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s5 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+enemies = [		{
+                            x: 150, y:250, type: 1
+                        },
+                        {
+                            x: 200, y:500, type: 2
+                        },
+                        {
+                            x: 300, y:250, type: 1
+                        },
+                        {
+                            x: 400, y:500, type: 2
+                        },
+                        {
+                            x: 500, y:250, type: 1
+                        },
+                        {
+                            x:600, y:700, type: 2
+                        },
+                        {
+                            x: 700, y:250, type: 1
+                        }]
+                    world = [
+                [810,802,802,802,802,802,802,802,802,802,802,802,805],
+                [800,wa1,xg1,xg2,xg5,xg3,wa1,xg4,xg1,wa4,xg2,xg4,803],
+                [800,xg3,xg4,xg5,xg2,xg5,xg3,xg5,wa1,xg5,12,wa1,803],
+                [800,wa3,wa2,xg2,wa3,wa2,wa2,xg2,xg5,wa3,xg3,xg4,803],
+                [800,xg5,wa1,xg5,xg3,xg2,wa3,wa4,xg4,xg3,xg1,wa2,803],
+                [800,xg1,wa1,xg2,xg4,xg1,xg3,xg5,wa4,xg5,xg5,xg4,803],
+                [800,xg4,wa2,wa3,wa4,wa5,wa1,xg4,xg5,wa1,xg4,wa4,803],
+                [800,xg2,xg1,xg2,xg3,xg3,xg2,xg1,xg5,wa1,wa3,wa1,803],
+                [800,xg3,xg4,xg1,wa1,wa3,wa2,wa2,wa1,xg1,5,xg5,803],
+                [800,xg5,xg1,xg4,xg1,xg2,xg5,xg1,xg5,xg5,wa4,xg2,803],
+                [807,804,804,804,804,804,804,804,804,804,804,804,806]
+            ];
+            cleared();
+            winnerScreen();
+                }
+//Level 3 MOBILE stage 3 MOBILE world 3 MOBILE
+if(world[link_guy.y][link_guy.x] == 15){
+    world.length = 0;
+    floor += 1;
+
+//random gem or empty
+    worldGemEmpty = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12);
+xg1 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg2 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg3 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg4 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+xg5 = worldGemEmpty[Math.floor(Math.random()*worldGemEmpty.length)];
+
+// random gem
+worldGem = Array(2, 8, 9, 11, 12);
+x1 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x2 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x3 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x4 = worldGem[Math.floor(Math.random()*worldGem.length)];
+x5 = worldGem[Math.floor(Math.random()*worldGem.length)];
+//random walls
+
+worldWall = Array(801, 10, 801, 0, 8, 12, 801, 801, 801, 12);
+wa1 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa2 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa3 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa4 = worldWall[Math.floor(Math.random()*worldWall.length)];
+wa5 = worldWall[Math.floor(Math.random()*worldWall.length)];
+
+//random stairs
+worldStairs = Array(5, 6, 7, 13, 14, 15);
+s1 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s2 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s3 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s4 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+s5 = worldStairs[Math.floor(Math.random()*worldStairs.length)];
+
+//enemy position 
+enemies = [		{
+                        x: 150, y:250, type: 1
+                    },
+                    {
+                        x: 200, y:500, type: 2
+                    },
+                    {
+                        x: 300, y:250, type: 1
+                    },
+                    {
+                        x: 400, y:500, type: 2
+                    },
+                    {
+                        x: 500, y:250, type: 1
+                    },
+                    {
+                        x:600, y:700, type: 2
+                    },
+                    {
+                        x: 700, y:250, type: 1
+                    }]
+                    world = [
+            [810,802,802,802,802,802,802,802,802,802,802,802,805],
+            [800,wa1,xg1,xg5,xg5,xg4,xg3,xg4,wa3,xg1,xg1,xg5,803],
+            [800,xg1,13,wa2,wa2,xg1,xg2,xg5,xg2,xg1,wa4,xg2,803],
+            [800,xg1,xg2,xg2,xg1,xg2,wa2,xg5,xg3,xg5,xg4,xg5,803],
+            [800,wa2,xg2,wa3,xg5,xg2,wa1,wa3,wa3,wa2,xg5,xg3,803],
+            [800,xg4,wa5,wa3,wa5,xg2,wa1,xg5,xg4,xg5,xg4,xg5,803],
+            [800,xg3,wa2,xg2,xg1,wa4,wa3,xg5,xg5,wa1,wa2,wa2,803],
+            [800,xg2,xg5,wa1,xg1,xg2,xg2,xg3,xg4,wa1,xg5,xg5,803],
+            [800,xg3,12,xg1,xg3,wa2,wa1,xg3,xg5,wa2,xg1,xg5,803],
+            [800,xg4,xg5,xg5,xg3,xg5,wa2,wa1,xg5,xg3,xg5,xg1,803],
+            [807,804,804,804,804,804,804,804,804,804,804,804,806]
+        ];
+        cleared();
+        winnerScreen();
+            }
+            if(world[link_guy.y][link_guy.x] == 2){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=10;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 8){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=5;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 9){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=20;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 11){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=100;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 12){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=1;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 400){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=1;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 401){
+                world[link_guy.y][link_guy.x] = 0;
+                score+=1;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 400 && score >200){
+                world[link_guy.y][link_guy.x] = 0;
+                linkGuyHP += 25;
+                score -= 200;
+                displayWorld();
+                displayScore();
+            }
+            if(world[link_guy.y][link_guy.x] == 401 && score >500){
+                world[link_guy.y][link_guy.x] = 0;
+                shards += 1;
+                score -= 500;
+                displayWorld();
+                displayScore();
+            }
+        }
+    }
+    var admobid = {};
+  if( /(android)/i.test(navigator.userAgent) ) { // for android & amazon-fireos
+    admobid = {
+      banner: 'ca-app-pub-3940256099942544/6300978111',
+      interstitial: 'ca-app-pub-3940256099942544/1033173712',
+    };
+  } else { // for ios
+    admobid = {
+      banner: 'ca-app-pub-3940256099942544/6300978111',
+      interstitial: 'ca-app-pub-3940256099942544/1033173712',
+    };
+  }
+
+    function loadAdMob(){
+        if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
+    }
+
+    function playAdMob(){
+        if(AdMob) AdMob.showInterstitial();
+    }
+
+    function adBarBottom(){
+        if(AdMob) AdMob.createBanner({
+  adId: admobid.banner,
+  position: AdMob.AD_POSITION.BOTTOM_CENTER,
+  overlap:true, 
+  autoShow: true });
+    }
+// }
+    </script>
+</body>
+<!-- <button id='loadAdMob' onclick="loadAdMob()">prepareInterstitial</button>
+<button id='playAdMob' onclick="playAdMob()">showInterstitial</button> -->
+<!-- <body>
+<script>
+  // place our admob ad unit id here
+  var admobid = {};
+  if( /(android)/i.test(navigator.userAgent) ) {
+    admobid = { // for Android
+      banner: 'ca-app-pub-3940256099942544/6300978111',
+      interstitial: 'ca-app-pub-3940256099942544/1033173712',
+      rewardvideo: 'ca-app-pub-3940256099942544/5224354917',
+    };
+  } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
+    admobid = { // for iOS
+      banner: 'ca-app-pub-3940256099942544/2934735716',
+      interstitial: 'ca-app-pub-3940256099942544/1033173712',
+      rewardvideo: 'ca-app-pub-3940256099942544/1712485313',
+    };
+  } else {
+    admobid = { // for Windows Phone, deprecated
+      banner: '',
+      interstitial: '',
+      rewardvideo: '',
+    };
+  }
+
+  function createSelectedBanner(){
+    if(AdMob) AdMob.createBanner({
+      adId: admobid.banner,
+      overlap: $('#overlap').is(':checked'),
+      offsetTopBar: $('#offsetTopBar').is(':checked'),
+      adSize: $('#adSize').val(),
+      position: $('#adPosition').val(),
+    });
+  }
+
+  function showBannerAtPosition(){
+    if(AdMob) AdMob.showBanner( $('#adPosition').val() );
+  }
+
+  function onDeviceReady() {
+    if (! AdMob) { alert( 'admob plugin not ready' ); return; }
+
+    initAd();
+
+    // display a banner at startup
+    createSelectedBanner();
+  }
+
+  function initAd(){
+    AdMob.getAdSettings(function(info){
+      console.log('adId: ' + info.adId + '\n' + 'adTrackingEnabled: ' + info.adTrackingEnabled);
+    }, function(){
+      console.log('failed to get user ad settings');
+    });
+
+    AdMob.setOptions({
+      // adSize: 'SMART_BANNER',
+      position: AdMob.AD_POSITION.BOTTOM_CENTER,
+      isTesting: true, // set to true, to receiving test ad for testing purpose
+      bgColor: 'black', // color name, or '#RRGGBB'
+      // autoShow: true // auto show interstitial ad when loaded, set to false if prepare/show
+      // offsetTopBar: false, // avoid overlapped by status bar, for iOS7+
+    });
+
+    // new events, with variable to differentiate: adNetwork, adType, adEvent
+    $(document).on('onAdFailLoad', function(e){
+      // when jquery used, it will hijack the event, so we have to get data from original event
+      if(typeof e.originalEvent !== 'undefined') e = e.originalEvent;
+      var data = e.detail || e.data || e;
+
+      alert('error: ' + data.error +
+          ', reason: ' + data.reason +
+          ', adNetwork:' + data.adNetwork +
+          ', adType:' + data.adType +
+          ', adEvent:' + data.adEvent); // adType: 'banner', 'interstitial', etc.
+    });
+    $(document).on('onAdLoaded', function(e){
+        if(typeof e.originalEvent !== 'undefined') e = e.originalEvent;
+        var data = e.data || e;
+
+        if(data.adType === 'interstitial') {
+            $('#h3_full').text('Interstitial Ready');
+            $('#btn_showfull').prop('disabled', false);
+
+        } else if(data.adType === 'rewardvideo') {
+            $('#h3_video').text('Rewarded Video Ready');
+            $('#btn_showvideo').prop('disabled', false);
+        }
+    });
+    $(document).on('onAdPresent', function(e){
+    });
+    $(document).on('onAdLeaveApp', function(e){
+    });
+    $(document).on('onAdDismiss', function(e){
+        if(typeof e.originalEvent !== 'undefined') e = e.originalEvent;
+        var data = e.data || e;
+
+        if(data.adType === 'interstitial') {
+            $('#h3_full').text('Interstitial');
+            $('#btn_showfull').prop('disabled', true);
+
+        } else if(data.adType === 'rewardvideo') {
+            $('#h3_video').text('Rewarded Video');
+            $('#btn_showvideo').prop('disabled', true);
+        }
+    });
+
+    $('#btn_create').click(createSelectedBanner);
+    $('#btn_remove').click(function(){
+      AdMob.removeBanner();
+    });
+
+    $('#btn_show').click(showBannerAtPosition);
+    $('#btn_hide').click(function(){
+      AdMob.hideBanner();
+    });
+
+    // test interstitial ad
+    $('#btn_prepare').click(function(){
+      AdMob.prepareInterstitial({
+        adId:admobid.interstitial,
+        autoShow: $('#autoshow').is(':checked'),
+      });
+    });
+
+    $('#btn_showfull').click(function(){
+      AdMob.showInterstitial();
+    });
+
+    // test rewarded video ad
+    $('#btn_preparevideo').click(function(){
+      AdMob.prepareRewardVideoAd({
+        adId:admobid.rewardvideo,
+        autoShow: $('#autoshowvideo').is(':checked'),
+      });
+    });
+
+    $('#btn_showvideo').click(function(){
+      AdMob.showRewardVideoAd();
+    });
+
+    // test case for #256, https://github.com/floatinghotpot/cordova-admob-pro/issues/256
+    $(document).on('backbutton', function(){
+      if(window.confirm('Are you sure to quit?')) navigator.app.exitApp();
+    });
+
+    // test case #283, https://github.com/floatinghotpot/cordova-admob-pro/issues/283
+    $(document).on('resume', function(){
+      AdMob.showInterstitial();
+    });
+  }
+
+  // test the webview resized properly
+  $(window).resize(function(){
+    $('#textinfo').html('web view: ' + $(window).width() + " x " + $(window).height());
+  });
+
+  $(document).ready(function(){
+    $('#btn_showfull').prop('disabled', true);
+    $('#btn_showvideo').prop('disabled', true);
+
+    // on mobile device, we must wait the 'deviceready' event fired by cordova
+    if(/(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent)) {
+      document.addEventListener('deviceready', onDeviceReady, false);
+    } else {
+      onDeviceReady();
+    }
+  });
+
+</script>
+  <div id="fullpage">
+    <p>Demo for AdMob Plugin</p>
+    <h3 id='h3_banner'>Banner</h3>
+    <input type='checkbox' id='overlap' />overlap
+    <input type='checkbox' id='offsetTopBar' />offsetTopBar
+    <br/>
+    <select id="adSize">
+      <option value='SMART_BANNER'>SMART_BANNER</option>
+      <option value='BANNER'>BANNER</option>
+      <option value='MEDIUM_RECTANGLE'>MEDIUM_RECTANGLE</option>
+      <option value='FULL_BANNER'>FULL_BANNER</option>
+      <option value='LEADERBOARD'>LEADERBOARD</option>
+      <option value='SKYSCRAPER'>SKYSCRAPER</option>
+    </select><br/>
+    <select id="adPosition">
+      <option value='1'>Top Left</option>
+      <option value='2'>Top Center</option>
+      <option value='3'>Top Right</option>
+      <option value='4'>Left</option>
+      <option value='5'>Center</option>
+      <option value='6'>Right</option>
+      <option value='7'>Bottom Left</option>
+      <option value='8' selected>Bottom Center</option>
+      <option value='9'>Bottom Right</option>
+    </select><br/>
+    <button id='btn_create'>createBanner</button>
+    <button id='btn_remove'>removeBanner</button>
+    <button id='btn_show'>showBanner</button>
+    <button id='btn_hide'>hideBanner</button>
+    <hr />
+
+    <h3 id='h3_full'>Interstitial</h3>
+    <input type='checkbox' id='autoshow' checked />auto show when ready<br />
+    <button id='btn_prepare'>prepareInterstitial</button>
+    <button id='btn_showfull'>showInterstitial</button>
+
+    <h3 id='h3_video'>Rewarded Video</h3>
+    <input type='checkbox' id='autoshowvideo' checked />auto show when ready<br />
+    <button id='btn_preparevideo'>prepareRewardVideoAd</button>
+    <button id='btn_showvideo'>showRewardVideoAd</button>
+
+    <p><textarea rows=4 cols=30 id='textinfo'></textarea></p>
+
+  </div>
+</body> -->
+</html>
