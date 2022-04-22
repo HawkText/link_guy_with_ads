@@ -5,7 +5,10 @@
     <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
         Apache Cordova Team
     </author>
-    <content src="index.html" />
+<allow-navigation href="*" />
+<content src="index.html" />
+<content original-src="index.html" />
+    <preference name="loadUrlTimeoutValue" value="70000" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
 </widget>
